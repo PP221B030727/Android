@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">Week_5</string>
+    <string name="getSt">Getting Started</string>
+    <string name="ahaaccount">already have an account ?</string>
+    <string name="wel">Welcome</string>
+    <string name="cranAc">Create an account and access thousand</string>
+    <string name="ofCool">of cool stuffs</string>
+    <string name="login">Log in</string>
+    <string name="LinNow">Log In Now</string>
+    <string name="Pls">Please login to continue using our app</string>
+    <string name ="dnt">Don t have an account ?</string>
+    <string name = "signUp">Sign Up</string>
+    <string name = "fullname">Fullname</string>
+    <string name = "eml">Email</string>
+    <string name = "pas">Password</string>
+    <string name = "forgot">Forgot Password ?</string>
+    <string name = "PleaseFillTheDetails">Please fill the details and create account</string>
+    <string name = "signUpNow">Sign Up Now</string>
+    <string name = "passwordRec">password must be at least 6 charactxer</string>
+    <string name = "myBookShoop">My Book Shop</string>
+    <string name = "set">Settings</string>
+    <string name = "logout">Logout</string>
+    <string name = "profile">Profile</string>
+    <string name = "add">Add book</string>
+    <string name = "delete">Delete book</string>
+    <string name = "update">Update book</string>
+
 </resources>

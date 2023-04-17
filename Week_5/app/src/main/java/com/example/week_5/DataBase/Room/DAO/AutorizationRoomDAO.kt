@@ -12,7 +12,6 @@ import com.example.week_5.model.Authorization
 interface AutorizationRoomDAO {
     @Query("SELECT * FROM clients_table")
     fun getAllUsers():LiveData<List<Authorization>>
-
     @Insert
     suspend fun addClients(auto : Authorization)
 
@@ -21,4 +20,5 @@ interface AutorizationRoomDAO {
 
     @Delete
     suspend fun deleteClients(auto: Authorization)
+
 }

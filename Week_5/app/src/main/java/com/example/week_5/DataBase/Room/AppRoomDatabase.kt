@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.week_5.DataBase.Room.DAO.AutorizationRoomDAO
 import com.example.week_5.model.Authorization
 
-@Database(entities = [Authorization::class],version = 1)
+@Database(entities = [Authorization::class],version = 3)
 abstract class AppRoomDatabase : RoomDatabase(){
     abstract fun getRoomDao():AutorizationRoomDAO
     companion object{
@@ -18,7 +18,7 @@ abstract class AppRoomDatabase : RoomDatabase(){
                 INSTANCE = Room.databaseBuilder(
                     context,
                     AppRoomDatabase::class.java,
-                    "clientsDatabase"
+                    "clientsDatabaseWithAdminAndSort"
                 ).build()
                 INSTANCE as AppRoomDatabase
             }

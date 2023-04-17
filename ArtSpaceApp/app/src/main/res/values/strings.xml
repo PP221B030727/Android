@@ -1,0 +1,7 @@
+<resources>
+    <string name = "app_name">ArtSpaceApp</string>
+    <string name = "nxt">Next</string>
+    <string name = "prv">Previos</string>
+    <string name = "ttl">Artwork Title</string>
+    <string name = "artisi">Artwork Artist (year)</string>
+</resources>

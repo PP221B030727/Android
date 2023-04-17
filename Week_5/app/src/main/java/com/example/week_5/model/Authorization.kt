@@ -14,5 +14,6 @@ data class Authorization(
     val email : String,
     @ColumnInfo
     val password : String,
-
+    @ColumnInfo
+    val isAdmin : Boolean
 )

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyBookShop</string>
+    <string name="ltsr">Lets read book with</string>
+    <string name="obsh">our book shope</string>
+    <string name="bkshp">Book Shope</string>
+    <string name="gtStr">Get Started</string>
+</resources>

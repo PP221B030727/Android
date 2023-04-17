@@ -1,6 +1,8 @@
 package com.example.week_5.Screens
 
 import android.app.Application
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -23,29 +25,55 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.runtime.*
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import com.example.week_5.Background
 import com.example.week_5.MainViewModel
 import com.example.week_5.MainViewModelFactory
 import com.example.week_5.R
 import com.example.week_5.Utils.TYPE_ROOM
 
 @Composable
-//@Preview(showBackground = true)
-fun welcomePage(modifier : Modifier = Modifier.fillMaxSize(), navigateToSignIn : () -> Unit , navigateTosignUp : () -> Unit, mViewModel : MainViewModel,navController : NavController) {
-//    println("This is - m -------" + mViewModel.Re)
-
-    Image(
-        painter = painterResource(id = R.drawable.photo_2023_02_12_22_37_17),
-        contentDescription = "Phone",
-        modifier = Modifier
-            .fillMaxSize()
-            .alpha(0.5f),
-        contentScale = ContentScale.FillBounds
+fun welcomePage(
+    mViewModel : MainViewModel,
+    navController : NavController ,
+    modifier: Modifier = Modifier
+) {
+    Background()
+    settongsAut(
+        mViewModel = mViewModel ,
+        navController = navController ,
+        modifier = modifier,
+        getSt = R.string.getSt ,
+        ahaaccount = R.string.ahaaccount,
+        login = R.string.login
     )
+    logoImage(
+        modifier = modifier,
+        removebg_preview = R.drawable.photo_2023_02_12_22_29_32_removebg_preview
+    )
+    descriptionApp(
+        modifier,
+        wel = R.string.wel,
+        cranAc = R.string.cranAc,
+        ofCool = R.string.ofCool
+    )
+}
+
+
+@Composable
+fun settongsAut(
+    mViewModel : MainViewModel,
+    navController : NavController,
+    modifier: Modifier = Modifier,
+    @StringRes getSt : Int,
+    @StringRes ahaaccount :Int,
+    @StringRes login : Int
+){
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxHeight(0.75f)
             .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -53,74 +81,106 @@ fun welcomePage(modifier : Modifier = Modifier.fillMaxSize(), navigateToSignIn :
     ) {
         Button(
             onClick = {
-//                navController.navigate("signup")
                 mViewModel.initDatabase(TYPE_ROOM){
                     navController.navigate("signup")
                 }
-
             } ,
-            colors = ButtonDefaults.buttonColors(backgroundColor = Color.DarkGray),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = Color.DarkGray
+            ),
             modifier = Modifier
                 .width(250.dp)
                 .height(60.dp)
         ) {
 
             Text(
-                text = "Getting Started",
+                text = stringResource(
+                    id = getSt
+                ),
                 color = Color.White
             )
         }
-        Row() {
-            val label = remember{ mutableStateOf("Log In") }
-            val save = label.value
-            Text(text = "already have an account ?",
+        Row{
+            Text(
+                text = stringResource(
+                    id = ahaaccount
+                ),
                 modifier = Modifier.padding(15.dp),
                 color = Color.DarkGray
             )
-            TextButton(onClick = {
-                mViewModel.initDatabase(TYPE_ROOM){
-                    navController.navigate("signin")
+            TextButton(
+                onClick = {
+                    mViewModel.initDatabase(TYPE_ROOM){
+                        navController.navigate("signin")
+                    }
                 }
-            }){
-                Text(save, fontSize = 10.sp, color = Color.Red)
+            )
+            {
+                Text(
+                    text = stringResource(
+                        id = login
+                    ),
+                    fontSize = 10.sp, color = Color.Red
+                )
             }
-
         }
     }
+}
+
+
+
+@Composable
+fun logoImage(
+    modifier: Modifier = Modifier ,
+    @DrawableRes removebg_preview : Int
+){
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxHeight(0.5f)
             .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Image(
-            painter = painterResource(id = R.drawable.photo_2023_02_12_22_29_32_removebg_preview),
+            painter = painterResource(
+                id = removebg_preview
+            ),
             contentDescription = "Logog",
-            modifier = Modifier
-                .width(240.dp)
-                .height(240.dp)
+            modifier = Modifier.width(240.dp).height(240.dp)
         )
     }
+}
+
+@Composable
+fun descriptionApp(
+    modifier: Modifier = Modifier,
+    @StringRes wel : Int,
+    @StringRes cranAc : Int,
+    @StringRes ofCool : Int
+){
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxHeight(0.5f)
             .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Bottom,
 
         ) {
-        Column(
-        ) {
+        Column{
             Text(
+                text = stringResource(
+                    id = wel
+                ),
                 fontFamily = FontFamily.Serif,
                 fontWeight = FontWeight.Bold,
-                fontSize = 32.sp,
-                text = "Welcome"
+                fontSize = 32.sp
             )
         }
-        Column {
-            Text(text = "Create an account and access thousand ",
+        Column{
+            Text(
+                text = stringResource(
+                    id = cranAc
+                ),
                 fontFamily = FontFamily.SansSerif,
                 fontWeight = FontWeight.Normal,
                 fontSize = 16.sp
@@ -129,7 +189,10 @@ fun welcomePage(modifier : Modifier = Modifier.fillMaxSize(), navigateToSignIn :
         Column (
             horizontalAlignment = Alignment.CenterHorizontally
         ){
-            Text(text = "of cool stuffs",
+            Text(
+                text = stringResource(
+                    id = ofCool
+                ),
                 fontFamily = FontFamily.SansSerif,
                 fontWeight = FontWeight.Normal,
                 fontSize = 16.sp

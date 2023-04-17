@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Calculate Tip</string>
+    <string name="app_name">Bill amount</string>
+    <string name="app_name">Tip (%)</string>
+    <string name="app_name">Round up tip ?</string>
+    <string name="app_name">Tip amount $s</string>
+
+</resources>
